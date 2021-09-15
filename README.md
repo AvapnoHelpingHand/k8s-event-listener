@@ -22,13 +22,12 @@ Usage:
   k8s-event-listener [flags]
 
 Flags:
-  -c, --callback string       Callback to be executed
   -h, --help                  help for k8s-event-listener
       --kube-config string    Path to kubeconfig file
       --kube-context string   Context to use
-  -p, --probe-port string     HTTP port to listen for liveness/readiness probes (default "8080")
-  -r, --resource string       K8s resource to listen
   -v, --verbose string        Verbose level (default "0")
+  -p, --probe-port string     HTTP port to listen for liveness/readiness probes (default "8080")
+  --{resource-name}=string    K8s resource event callback
 ```
 
 This application has been designed to live inside the cluster, it uses the injected service-account tokens to interact 
@@ -55,7 +54,7 @@ Currently only checks for kube-api connectivity.
 ### Example
 
 ```
-$ k8s-event-listener -r pod -c ./test.sh
+$ k8s-event-listener --pod=./test.sh
 ```
 
 Script will start receiving instructions like:
