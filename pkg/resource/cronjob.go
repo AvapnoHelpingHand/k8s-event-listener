@@ -15,8 +15,8 @@ func init() {
 
 func getCronjob() resourceType {
 	return resourceType{
-		name: []string{"cj", "cronjob", "cronjobs"},
-		fn: func(callback string) (r *eventlistener.Resource, e error) {
+		Name: []string{"cj", "cronjob", "cronjobs"},
+		Fn: func(callback string) (r *eventlistener.Resource, e error) {
 			r = &eventlistener.Resource{}
 			r.ResourceName = "cronjobs"
 			r.RestClient = func(clientset *kubernetes.Clientset) rest.Interface {
