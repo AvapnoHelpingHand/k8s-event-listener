@@ -10,7 +10,7 @@ import (
 )
 
 func init() {
-	resources = append(resources, getNode())
+	Resources = append(Resources, getNode())
 }
 
 func getNode() resourceType {

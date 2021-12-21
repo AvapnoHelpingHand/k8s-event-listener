@@ -19,7 +19,7 @@ type resourceType struct {
 	fn   func(string) (*eventlistener.Resource, error)
 }
 
-var resources []resourceType
+var Resources []resourceType
 
 // NewResource returns pointer to Resource and/or error
 func NewResource(resourceName, callback string) (*eventlistener.Resource, error) {

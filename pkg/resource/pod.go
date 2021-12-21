@@ -10,7 +10,7 @@ import (
 )
 
 func init() {
-	resources = append(resources, getPod())
+	Resources = append(Resources, getPod())
 }
 
 func getPod() resourceType {

@@ -9,7 +9,7 @@ import (
 )
 
 func init() {
-	resources = append(resources, getIngress())
+	Resources = append(Resources, getIngress())
 }
 
 func getIngress() resourceType {

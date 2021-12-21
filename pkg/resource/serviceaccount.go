@@ -10,7 +10,7 @@ import (
 )
 
 func init() {
-	resources = append(resources, getServiceAccount())
+	Resources = append(Resources, getServiceAccount())
 }
 
 func getServiceAccount() resourceType {
