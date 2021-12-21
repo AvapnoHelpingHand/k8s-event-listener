@@ -10,7 +10,7 @@ import (
 )
 
 func init() {
-	resources = append(resources, getCertificateSigningRequest())
+	Resources = append(Resources, getCertificateSigningRequest())
 }
 
 func getCertificateSigningRequest() resourceType {
