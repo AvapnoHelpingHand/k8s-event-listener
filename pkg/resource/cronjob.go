@@ -10,7 +10,7 @@ import (
 )
 
 func init() {
-	resources = append(resources, getCronjob())
+	Resources = append(Resources, getCronjob())
 }
 
 func getCronjob() resourceType {
