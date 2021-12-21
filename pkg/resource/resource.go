@@ -15,8 +15,8 @@ type callBackMeta struct {
 }
 
 type resourceType struct {
-	name []string
-	fn   func(string) (*eventlistener.Resource, error)
+	Name []string
+	Fn   func(string) (*eventlistener.Resource, error)
 }
 
 var Resources []resourceType
