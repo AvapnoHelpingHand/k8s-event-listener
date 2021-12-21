@@ -15,8 +15,8 @@ func init() {
 
 func getServiceAccount() resourceType {
 	return resourceType{
-		name: []string{"sa", "serviceaccount", "serviceaccounts"},
-		fn: func(callback string) (r *eventlistener.Resource, e error) {
+		Name: []string{"sa", "serviceaccount", "serviceaccounts"},
+		Fn: func(callback string) (r *eventlistener.Resource, e error) {
 			r = &eventlistener.Resource{}
 			r.ResourceName = "serviceaccounts"
 			r.RestClient = func(clientset *kubernetes.Clientset) rest.Interface {
