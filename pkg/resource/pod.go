@@ -15,8 +15,8 @@ func init() {
 
 func getPod() resourceType {
 	return resourceType{
-		name: []string{"p", "pod", "pods"},
-		fn: func(callback string) (r *eventlistener.Resource, e error) {
+		Name: []string{"p", "pod", "pods"},
+		Fn: func(callback string) (r *eventlistener.Resource, e error) {
 			r = &eventlistener.Resource{}
 			r.ResourceName = "pods"
 			r.RestClient = func(clientset *kubernetes.Clientset) rest.Interface {
