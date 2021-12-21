@@ -14,8 +14,8 @@ func init() {
 
 func getIngress() resourceType {
 	return resourceType{
-		name: []string{"i", "ingress", "ingresses"},
-		fn: func(callback string) (r *eventlistener.Resource, e error) {
+		Name: []string{"i", "ingress", "ingresses"},
+		Fn: func(callback string) (r *eventlistener.Resource, e error) {
 			r = &eventlistener.Resource{}
 			r.ResourceName = "ingresses"
 			r.RestClient = func(clientset *kubernetes.Clientset) rest.Interface {
