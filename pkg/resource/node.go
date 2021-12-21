@@ -15,8 +15,8 @@ func init() {
 
 func getNode() resourceType {
 	return resourceType{
-		name: []string{"n", "node", "nodes"},
-		fn: func(callback string) (r *eventlistener.Resource, e error) {
+		Name: []string{"n", "node", "nodes"},
+		Fn: func(callback string) (r *eventlistener.Resource, e error) {
 			r = &eventlistener.Resource{}
 			r.ResourceName = "nodes"
 			r.RestClient = func(clientset *kubernetes.Clientset) rest.Interface {
