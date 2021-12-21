@@ -39,7 +39,7 @@ func NewK8sEventListenerCommand(ctx context.Context) *K8sEventListenerCommand {
 func (k *K8sEventListenerCommand) Run() int {
 	k.rootCommand.Flags().StringP("probe-port", "p", "8080", "HTTP port to listen for liveness/readiness probes")
 	for i, item := range resource.Resources {
-		k.rootCommand.Flags().String(item.Name, "", "Callback for k8s resource event")
+		k.rootCommand.Flags().String(strings.Join(item.Name, ", "), "", "Callback for k8s resource event")
 	}
 
 	k.rootCommand.PersistentPreRunE = func(cmd *cobra.Command, args []string) (err error) {
@@ -64,18 +64,20 @@ func (k *K8sEventListenerCommand) Run() int {
 		}()
 
 		go func() {
-			for i, item := range resource.Resources {
-				if viper.IsSet(item.Name) {
-					r, err := resource.NewResource(item.Name, viper.GetString(item.Name))
-					if err != nil {
-						k.cErr <- err
-						return
-					}
+			for nil, item := range resource.Resources {
+				for nil, name := range item.Name {
+					if viper.IsSet(name) {
+						r, err := resource.NewResource(item.Name[0], viper.GetString(item.Name[0]))
+						if err != nil {
+							k.cErr <- err
+							return
+						}
 
-					err = k.eventListener.Listen(r)
-					if err != nil {
-						k.cErr <- err
-						return
+						err = k.eventListener.Listen(r)
+						if err != nil {
+							k.cErr <- err
+							return
+						}
 					}
 				}
 			}
