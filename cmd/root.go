@@ -2,6 +2,7 @@ package cmd
 
 import (
 	"context"
+	"errors"
 	"fmt"
 	"k8s-event-listener/pkg/eventlistener"
 	"k8s-event-listener/pkg/resource"
