@@ -64,6 +64,7 @@ func (k *K8sEventListenerCommand) Run() int {
 		}()
 
 		go func() {
+			listening := false
 			for nil, item := range resource.Resources {
 				for nil, name := range item.Name {
 					if viper.IsSet(name) {
@@ -78,9 +79,18 @@ func (k *K8sEventListenerCommand) Run() int {
 							k.cErr <- err
 							return
 						}
+						
+						listening := true
 					}
 				}
 			}
+			
+			if listening != true {
+				k.cErr <- errors.New("no known resource set")
+				return
+			}
+			
+			return
 		}()
 
 		err = <-k.cErr
