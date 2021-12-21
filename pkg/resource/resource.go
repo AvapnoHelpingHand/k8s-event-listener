@@ -25,8 +25,8 @@ var Resources []resourceType
 func NewResource(resourceName, callback string) (*eventlistener.Resource, error) {
 	resourceName = strings.ToLower(resourceName)
 	for _, resource := range Resources {
-		if internal.Contains(resource.name, resourceName) {
-			return resource.fn(callback)
+		if internal.Contains(resource.Name, resourceName) {
+			return resource.Fn(callback)
 		}
 	}
 
