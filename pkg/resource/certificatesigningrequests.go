@@ -15,8 +15,8 @@ func init() {
 
 func getCertificateSigningRequest() resourceType {
 	return resourceType{
-		name: []string{"csr", "certificatesigningrequest", "certificatesigningrequests"},
-		fn: func(callback string) (r *eventlistener.Resource, e error) {
+		Name: []string{"csr", "certificatesigningrequest", "certificatesigningrequests"},
+		Fn: func(callback string) (r *eventlistener.Resource, e error) {
 			r = &eventlistener.Resource{}
 			r.ResourceName = "certificatesigningrequests"
 			r.RestClient = func(clientset *kubernetes.Clientset) rest.Interface {
