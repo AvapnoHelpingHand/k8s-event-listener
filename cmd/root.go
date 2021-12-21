@@ -38,7 +38,7 @@ func NewK8sEventListenerCommand(ctx context.Context) *K8sEventListenerCommand {
 // Run the main application
 func (k *K8sEventListenerCommand) Run() int {
 	k.rootCommand.Flags().StringP("probe-port", "p", "8080", "HTTP port to listen for liveness/readiness probes")
-	for i, item := range resource.resources {
+	for i, item := range resource.Resources {
 		k.rootCommand.Flags().String(item.name, "", "Callback for k8s resource event")
 	}
 
@@ -64,7 +64,7 @@ func (k *K8sEventListenerCommand) Run() int {
 		}()
 
 		go func() {
-			for i, item := range resource.resources {
+			for i, item := range resource.Resources {
 				if viper.IsSet(item.name) {
 					r, err := resource.NewResource(item.name, viper.GetString(item.name))
 					if err != nil {
