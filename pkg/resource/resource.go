@@ -24,7 +24,7 @@ var Resources []resourceType
 // NewResource returns pointer to Resource and/or error
 func NewResource(resourceName, callback string) (*eventlistener.Resource, error) {
 	resourceName = strings.ToLower(resourceName)
-	for _, resource := range resources {
+	for _, resource := range Resources {
 		if internal.Contains(resource.name, resourceName) {
 			return resource.fn(callback)
 		}
