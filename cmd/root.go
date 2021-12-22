@@ -39,7 +39,7 @@ func NewK8sEventListenerCommand(ctx context.Context) *K8sEventListenerCommand {
 // Run the main application
 func (k *K8sEventListenerCommand) Run() int {
 	k.rootCommand.Flags().StringP("probe-port", "p", "8080", "HTTP port to listen for liveness/readiness probes")
-	for i, item := range resource.Resources {
+	for _, item := range resource.Resources {
 		k.rootCommand.Flags().String(strings.Join(item.Name, ", "), "", "Callback for k8s resource event")
 	}
 
@@ -81,7 +81,7 @@ func (k *K8sEventListenerCommand) Run() int {
 							return
 						}
 						
-						listening := true
+						listening = true
 					}
 				}
 			}
