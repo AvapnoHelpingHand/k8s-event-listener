@@ -40,7 +40,8 @@ func NewK8sEventListenerCommand(ctx context.Context) *K8sEventListenerCommand {
 func (k *K8sEventListenerCommand) Run() int {
 	k.rootCommand.Flags().StringP("probe-port", "p", "8080", "HTTP port to listen for liveness/readiness probes")
 	for _, item := range resource.Resources {
-		k.rootCommand.Flags().String(strings.Join(item.Name, ", "), "", "Callback for k8s resource event")
+		k.rootCommand.Flags().String(item.Name[0], "", "Callback for k8s resource event")
+		viper.RegisterAlias(item.Name[1], item.Name[0])
 	}
 
 	k.rootCommand.PersistentPreRunE = func(cmd *cobra.Command, args []string) (err error) {
