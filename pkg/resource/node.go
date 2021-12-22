@@ -15,7 +15,7 @@ func init() {
 
 func getNode() resourceType {
 	return resourceType{
-		Name: []string{"n", "node", "nodes"},
+		Name: []string{"node", "nodes"},
 		Fn: func(callback string) (r *eventlistener.Resource, e error) {
 			r = &eventlistener.Resource{}
 			r.ResourceName = "nodes"
