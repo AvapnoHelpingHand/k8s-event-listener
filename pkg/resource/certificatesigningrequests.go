@@ -15,7 +15,7 @@ func init() {
 
 func getCertificateSigningRequest() resourceType {
 	return resourceType{
-		Name: []string{"csr", "certificatesigningrequest", "certificatesigningrequests"},
+		Name: []string{"certificatesigningrequest", "certificatesigningrequests"},
 		Fn: func(callback string) (r *eventlistener.Resource, e error) {
 			r = &eventlistener.Resource{}
 			r.ResourceName = "certificatesigningrequests"
