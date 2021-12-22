@@ -14,7 +14,7 @@ func init() {
 
 func getIngress() resourceType {
 	return resourceType{
-		Name: []string{"i", "ingress", "ingresses"},
+		Name: []string{"ingress", "ingresses"},
 		Fn: func(callback string) (r *eventlistener.Resource, e error) {
 			r = &eventlistener.Resource{}
 			r.ResourceName = "ingresses"
