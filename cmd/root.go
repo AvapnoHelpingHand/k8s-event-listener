@@ -66,8 +66,8 @@ func (k *K8sEventListenerCommand) Run() int {
 
 		go func() {
 			listening := false
-			for nil, item := range resource.Resources {
-				for nil, name := range item.Name {
+			for _, item := range resource.Resources {
+				for _, name := range item.Name {
 					if viper.IsSet(name) {
 						r, err := resource.NewResource(item.Name[0], viper.GetString(item.Name[0]))
 						if err != nil {
