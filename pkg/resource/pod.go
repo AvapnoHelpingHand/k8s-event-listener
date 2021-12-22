@@ -15,7 +15,7 @@ func init() {
 
 func getPod() resourceType {
 	return resourceType{
-		Name: []string{"p", "pod", "pods"},
+		Name: []string{"pod", "pods"},
 		Fn: func(callback string) (r *eventlistener.Resource, e error) {
 			r = &eventlistener.Resource{}
 			r.ResourceName = "pods"
