@@ -15,7 +15,7 @@ func init() {
 
 func getServiceAccount() resourceType {
 	return resourceType{
-		Name: []string{"sa", "serviceaccount", "serviceaccounts"},
+		Name: []string{"serviceaccount", "serviceaccounts"},
 		Fn: func(callback string) (r *eventlistener.Resource, e error) {
 			r = &eventlistener.Resource{}
 			r.ResourceName = "serviceaccounts"
