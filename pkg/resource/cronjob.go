@@ -15,7 +15,7 @@ func init() {
 
 func getCronjob() resourceType {
 	return resourceType{
-		Name: []string{"cj", "cronjob", "cronjobs"},
+		Name: []string{"cronjob", "cronjobs"},
 		Fn: func(callback string) (r *eventlistener.Resource, e error) {
 			r = &eventlistener.Resource{}
 			r.ResourceName = "cronjobs"
